@@ -44,5 +44,6 @@ db.shows.aggregate([
 ]);
 
 // Expected output:
-// { show_id: 3, date: "2025-06-20", ticketPrice: 40, venue: { name: "9:30 Club", city: "Washington" } }
-// { show_id: 6, date: "2025-09-05", ticketPrice: 35, venue: { name: "9:30 Club", city: "Washington" } }
+// { show_id: 1, date: "2025-03-15", ticketPrice: 45, venue: { name: "The Fillmore",  city: "San Francisco" } }
+// { show_id: 3, date: "2025-06-20", ticketPrice: 40, venue: { name: "9:30 Club",     city: "Washington"   } }
+// { show_id: 6, date: "2025-09-05", ticketPrice: 35, venue: { name: "9:30 Club",     city: "Washington"   } }
