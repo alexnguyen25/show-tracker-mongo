@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+
+<h1>Venues</h1>
+<p><a href="/venues/new">Add a venue</a></p>
+
+<% if (!venues || venues.length === 0) { %>
+  <p>No venues yet. <a href="/venues/new">Add your first venue</a>.</p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Capacity</th>
+        <th>Genres</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% venues.forEach(function (venue) { %>
+        <tr>
+          <td><%= venue.name %></td>
+          <td><%= venue.city %></td>
+          <td><%= venue.state %></td>
+          <td><%= venue.capacity != null ? venue.capacity : '—' %></td>
+          <td><%= Array.isArray(venue.genreTags) ? venue.genreTags.join(', ') : '—' %></td>
+          <td>
+            <a href="/venues/<%= venue.venue_id %>/edit">Edit</a>
+            <form action="/venues/<%= venue.venue_id %>/delete" method="post">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+</body>
+</html>

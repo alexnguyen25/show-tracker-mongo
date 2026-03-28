@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<h1>Edit show</h1>
+<p><a href="/shows">← Back to shows</a></p>
+
+<form action="/shows/<%= show.show_id %>/edit" method="post">
+  <label>
+    Date
+    <input type="date" name="date" value="<%= show.date %>" required>
+  </label>
+  <label>
+    Ticket price
+    <input type="number" name="ticketPrice" step="0.01" min="0" placeholder="0.00"
+      value="<%= show.ticketPrice != null ? show.ticketPrice : '' %>">
+  </label>
+  <label>
+    Venue
+    <select name="venue_id" required>
+      <% (venues || []).forEach(function (v) { %>
+        <option value="<%= v.venue_id %>" <%= v.venue_id === show.venue_id ? 'selected' : '' %>>
+          <%= v.name %> — <%= v.city %>, <%= v.state %>
+        </option>
+      <% }); %>
+    </select>
+  </label>
+  <p><button type="submit">Save changes</button></p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<h1>Add venue</h1>
+<p><a href="/venues">← Back to venues</a></p>
+
+<form action="/venues" method="post">
+  <label>
+    Name
+    <input type="text" name="name" required>
+  </label>
+  <label>
+    City
+    <input type="text" name="city" required>
+  </label>
+  <label>
+    State
+    <input type="text" name="state" required maxlength="2" placeholder="e.g. CA">
+  </label>
+  <label>
+    Capacity
+    <input type="number" name="capacity" min="0" placeholder="optional">
+  </label>
+  <label>
+    Genre tags (comma-separated)
+    <input type="text" name="genreTags" placeholder="Indie, Rock">
+  </label>
+  <p><button type="submit">Create venue</button></p>
+</form>
+
+</body>
+</html>

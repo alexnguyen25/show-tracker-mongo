@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<h1>Shows</h1>
+<p><a href="/shows/new">Add a show</a></p>
+
+<% if (!shows || shows.length === 0) { %>
+  <p>No shows yet. <a href="/shows/new">Add your first show</a>.</p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Venue</th>
+        <th>Location</th>
+        <th>Ticket price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% shows.forEach(function (show) { %>
+        <tr>
+          <td><%= show.date %></td>
+          <td><%= show.venue && show.venue.name ? show.venue.name : '—' %></td>
+          <td>
+            <% if (show.venue) { %>
+              <%= show.venue.city %>, <%= show.venue.state %>
+            <% } else { %>
+              —
+            <% } %>
+          </td>
+          <td>
+            <% if (show.ticketPrice != null && show.ticketPrice !== '') { %>
+              $<%= Number(show.ticketPrice).toFixed(2) %>
+            <% } else { %>
+              —
+            <% } %>
+          </td>
+          <td>
+            <a href="/shows/<%= show.show_id %>/edit">Edit</a>
+            <form action="/shows/<%= show.show_id %>/delete" method="post">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+</body>
+</html>

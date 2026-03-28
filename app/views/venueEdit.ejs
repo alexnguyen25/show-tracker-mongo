@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<h1>Edit venue</h1>
+<p><a href="/venues">← Back to venues</a></p>
+
+<form action="/venues/<%= venue.venue_id %>/edit" method="post">
+  <label>
+    Name
+    <input type="text" name="name" value="<%= venue.name %>" required>
+  </label>
+  <label>
+    City
+    <input type="text" name="city" value="<%= venue.city %>" required>
+  </label>
+  <label>
+    State
+    <input type="text" name="state" value="<%= venue.state %>" required maxlength="2">
+  </label>
+  <label>
+    Capacity
+    <input type="number" name="capacity" min="0"
+      value="<%= venue.capacity != null ? venue.capacity : '' %>">
+  </label>
+  <label>
+    Genre tags (comma-separated)
+    <input type="text" name="genreTags"
+      value="<%= Array.isArray(venue.genreTags) ? venue.genreTags.join(', ') : '' %>">
+  </label>
+  <p><button type="submit">Save changes</button></p>
+</form>
+
+</body>
+</html>
