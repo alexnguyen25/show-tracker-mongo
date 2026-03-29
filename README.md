@@ -7,6 +7,8 @@ A MongoDB document database adaptation of **ShowTracker**, a platform that lets 
 ## Quick Start
 
 ```bash
+# From the repository root (show-tracker-mongo/):
+
 # 1. Restore the database from dump
 mongorestore --db showtracker dump/showtracker/
 
@@ -29,20 +31,21 @@ show-tracker-mongo/
 │
 ├── docs/
 │   ├── requirements.pdf               ← [Task 1] Requirements document (reused from Project 1)
-│   ├── logical_model.png              ← [Task 2] Hierarchical Logical Data Model diagram
 │   └── collections.js                 ← [Task 3] JSON collection definitions with comments
 │
 ├── diagrams/
-│   └── uml_class_diagram.png          ← [Task 1] UML Conceptual Model (reused from Project 1)
+│   ├── uml_class_diagram.png          ← [Task 1] UML Conceptual Model (reused from Project 1)
+│   └── logical_model.png              ← [Task 2] Hierarchical logical model / ERD for Mongo
 │
 ├── data/
-│   ├── test_data.js                   ← [Task 4] Test data for all 4 collections
-│   └── dump/                          ← [Task 4] mongodump output for database restore
-│       └── showtracker/
-│           ├── users.bson
-│           ├── shows.bson
-│           ├── artists.bson
-│           └── venues.bson
+│   └── test_data.js                   ← [Task 4] Test data for all 4 collections
+│
+├── dump/                              ← [Task 4] mongodump output (run mongorestore from repo root)
+│   └── showtracker/
+│       ├── users.bson
+│       ├── shows.bson
+│       ├── artists.bson
+│       └── venues.bson
 │
 ├── queries/
 │   ├── query1_aggregation.js          ← [Task 5] Aggregation pipeline
@@ -98,6 +101,8 @@ Reused from Project 1. Describes the ShowTracker problem domain including busine
 
 **File:** [`diagrams/logical_model.png`](diagrams/logical_model.png)
 
+For course submission, this hierarchical logical data model diagram is also the **ERD** (entity-relationship style view of roots, embeds, and references).
+
 ![Hierarchical Logical Data Model](diagrams/logical_model.png)
 
 Adapts the relational schema into a document hierarchy with 4 root collections. Each collection becomes a MongoDB collection. Embedding and referencing decisions:
@@ -119,7 +124,7 @@ Adapts the relational schema into a document hierarchy with 4 root collections. 
 
 ### Task 3 — Main Collections Defined in JSON (10 pts)
 
-**File:** [`documents/collections.js`](documents/collections.js)
+**File:** [`docs/collections.js`](docs/collections.js)
 
 Defines all 4 collections with 2 example documents each, including inline comments explaining design decisions. Collections:
 
@@ -134,7 +139,7 @@ Defines all 4 collections with 2 example documents each, including inline commen
 
 **Files:**
 - [`data/test_data.js`](data/test_data.js)
-- [`data/dump/showtracker/`](data/dump/showtracker/)
+- [`dump/showtracker/`](dump/showtracker/) — BSON files from `mongodump` (at repository root)
 
 | Collection | Documents | Notes |
 |---|---|---|
@@ -145,7 +150,7 @@ Defines all 4 collections with 2 example documents each, including inline commen
 
 **To initialize the database:**
 
-Option 1 — Restore from dump:
+Option 1 — Restore from dump (run from the repository root so `dump/showtracker/` resolves):
 ```bash
 mongorestore --db showtracker dump/showtracker/
 ```
