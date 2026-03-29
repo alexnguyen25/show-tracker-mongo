@@ -213,14 +213,12 @@ npm start
 
 ## AI Usage
 
-AI (Claude by Anthropic) was used throughout this project for the following:
+AI (Claude Sonnet 4.6 by Anthropic) was used throughout this project for the following:
 
-- **Planning** — breaking down project deliverables into phases and creating a work plan
-- **Logical Data Model** — designing the document hierarchy, embedding vs. referencing decisions, and LucidChart diagram instructions
-- **JSON Collection Definitions** — generating example documents with inline design comments
-- **Test Data** — generating realistic JSON data for all 4 collections using real artist and venue names
-- **Queries** — generating all 5 MongoDB queries based on rubric requirements and debugging query syntax
-- **Node + Express App** — adapting Project 1's SQLite app to use the MongoDB driver, updating all route logic and EJS views
-- **README** — generating documentation in the same style as Project 1
+- **Planning** — breaking down project deliverables into phases and creating a work plan with the prompt "Break this rubric down into sections for me to follow"
+- **JSON Collection Definitions** — generating example documents with inline design comments using prompts like "generate example json documents based off the logical data model i gave you"
+- **Test Data** — generating realistic JSON data for all 4 collections using prompts like "generate mock test data for this collection"
+- **Queries** — checking all 5 MongoDB queries based on rubric requirements and debugging query syntax using prompts like "check my query if it follows the rubric and runs correctly with the correct output" and "generate comments for this query"
+- **README** — generating documentation in the same style as Project 1 using prompts like "generate a readme for my repository making sure it answers all the tasks in the rubric"
 
 All AI-generated content was reviewed, tested, and verified before inclusion in the project.
