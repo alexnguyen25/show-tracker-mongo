@@ -207,7 +207,7 @@ npm start
 
 ## Video Demo
 
-[Link to YouTube demo](#) ← replace with your YouTube link
+[Link to YouTube demo](https://youtu.be/4r_-VUR37PY) ← replace with your YouTube link
 
 ---
 
